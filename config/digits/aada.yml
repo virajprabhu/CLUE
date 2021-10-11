@@ -1,0 +1,39 @@
+id: 'svhn2mnist'
+
+# Active Learning strategy
+al_strat: 'AADA' 
+# Domain Adaptation strategy
+da_strat: 'dann'
+# Model initialization
+model_init: 'source'
+
+# Number of runs
+runs: 3
+source: 'svhn'
+target: 'mnist'
+
+# Total budget
+total_budget: 300
+# Number of rounds
+num_rounds: 30
+
+cnn: 'LeNet'
+optimizer: 'Adam'
+use_cuda: True
+batch_size: 128
+
+# Source training hyperparameters
+lr: 0.0002
+wd: 0.00001
+num_epochs: 50
+
+# Domain adaptation hyperparameters
+uda_lr: 0.0002
+uda_num_epochs: 60
+adapt_lr: 0.0002
+adapt_num_epochs: 60
+da_num_epochs: 60
+# Domain adaptation loss weights
+src_sup_wt: 0.1
+unsup_wt: 1.0
+cent_wt: 0.1

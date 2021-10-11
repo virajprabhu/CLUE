@@ -1,0 +1,41 @@
+id: 'clipart2sketch'
+
+# Active Learning strategy
+al_strat: 'uniform' 
+# Domain Adaptation strategy
+da_strat: 'mme'
+# Model initialization
+model_init: 'source'
+
+# Number of runs
+runs: 3
+source: 'clipart'
+target: 'sketch'
+
+# Total budget
+total_budget: 5000
+# Number of rounds
+num_rounds: 10
+
+cnn: 'ResNet34'
+optimizer: 'Adam'
+use_cuda: True
+batch_size: 64
+
+# Source training hyperparameters
+lr: 0.00001
+wd: 0.00001
+num_epochs: 50
+
+# UDA hyperparameters
+uda_lr: 0.0000003
+uda_num_epochs: 50
+
+# DA hyperparameters
+adapt_lr: 0.00001
+adapt_num_epochs: 20
+
+# Domain adaptation loss weights
+src_sup_wt: 0.1
+unsup_wt: 0.1
+cent_wt: 0.01
