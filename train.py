@@ -177,9 +177,9 @@ def main():
 	if args_cmd.load_from_cfg:
 		args_cfg = dict(OmegaConf.load(args_cmd.cfg_file))
 		args_cmd = vars(args_cmd)
-		for k in args_cmd.keys():
-			if args_cmd[k] is not None: args_cfg[k] = args_cmd[k]
-		args = OmegaConf.create(args_cfg)
+		for k in args_cfg.keys():
+			if args_cfg[k] is not None: args_cmd[k] = args_cfg[k]
+		args = OmegaConf.create(args_cmd)
 	else: 
 		args = args_cmd
 
